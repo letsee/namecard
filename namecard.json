@@ -1,0 +1,10 @@
+{
+	"uri":"namecard.json",
+	"name":"Letsee Namecard",
+	"size":{
+		"width": 90,
+		"height": 50
+	},
+	"scale": 0.2,
+	"image":"./namecard02.png"
+}

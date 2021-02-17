@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Letsee AR Demo - Ultima Cena</title>
+    <meta content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <script src="https://letsee-dev.s3.ap-northeast-2.amazonaws.com/webar/Letsee.0.9.16.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/easing/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
+
+    <link rel="stylesheet" href="css/layout.css">
+    <script src="./js/app.js"></script>
+    <style media="place" type="text/css">
+        #container {
+            -letsee-target: uri('namecard.json');
+            /*-letsee-target: uri('toystory.json');*/
+            /*-letsee-target: uri('qrcode_01.json');*/
+            -letsee-position: coords(0, 0, 0);
+        }
+
+        .cardContent {
+            -letsee-target: uri('namecard.json');
+            -letsee-position: coords(-80, 220, 0);
+
+        }
+    </style>
+</head>
+<body>
+<style>
+
+
+</style>
+<div id="container">
+
+</div>
+<div id="button1" class="arBtn" style="display: none;"><a href="https://www.youtube.com/channel/UCiRjFrM3l5rwGAJ07PAzw0A" target="_blank"><img src="asset/youtube.svg"></a></div>
+<div id="button2" class="arBtn" style="display: none;"><a href="https://www.facebook.com/thomas141221" target="_blank"><img src="asset/facebook.svg"></a></div>
+<div id="button3" class="arBtn" style="display: none;"><a href="https://www.letsee.io" target="_blank"><img src="asset/letsee.svg"></a></div>
+<div id="button4" class="arBtn" style="display: none;"><a href="tel:+8225669711"><img src="asset/telephone.svg"></a></div>
+<div id="button5" class="arBtn" style="display: none;"><a href="./leejh.vcf"><img src="asset/card.svg"></a></div>
+
+<section id="vcard" class="cardContent" vocab="http://www.w3.org/2006/vcard/ns#">
+    <article resource="#Jaeho-lee" typeof="Individual">
+        <h1>Product Manager</h1>
+        <h2 property="fn"><span property="given-name">Jaeho</span> <span property="family-name">Lee</span></h2>
+        <div class="company">
+            <img src="./asset/loto-text.svg" alt="Letsee, Inc">
+        </div>
+        <address property="hasAddress" typeof="Work">
+            <span property="street-address">15 Teheran-ro 82-gil, 8th Floor</span><br />
+            <span property="locality">Gangnam-gu</span>, <span property="region">Seoul</span>
+            <span property="postal-code" lang="">06178</span>
+            <span property="country-name">South Korea</span>
+        </address>
+
+        <div class="phone" property="hasTelephone" typeof="Voice Work">
+            Tel: <a property="hasValue" href="tel:+8225669711">+82 2 566 9711</a>
+        </div>
+        <div class="email" property="hasEmail" typeof="Work">
+            Email: <a property="hasValue" href="m&#97;&#105;&#108;to:&#x6C;&#101;&#x65;j&#104;&#x40;lets&#101;&#101;.io">leejh@letsee.io</a>
+        </div>
+    </article>
+</section>
+<script>
+    const config = {
+        // "appKey": "abdc9d670bc3b103374306761da7f20f49f7f23ac57b39d012338fa849229a0f",
+        "appKey": "Tb8arp5eF9ZMDw0u2QiOyV845R61eltmeZQKwFBXBeeNU9Q5vgpduQdF5oipQX9X",
+        "trackerType": "PLANAR",
+        "isSteady": true
+    };
+    let flag = false;
+    const app = new Letsee(config);
+    if(app !== null && typeof app !== 'undefined') {
+
+        app.addEventListener('app_status', e => {
+            console.log(e);
+            switch (e.code) {
+                case 202:
+                    namecard.init('arBtn');
+                    break;
+            }
+        });
+        app.addEventListener('trackstart', e => {
+            if(!flag ) {
+                namecard.startAnimation();
+                flag = true;
+            }
+
+        });
+    };
+
+
+</script>
+</body>
+</html>
