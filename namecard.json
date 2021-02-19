@@ -1,10 +1,7 @@
 {
-	"uri":"namecard.json",
-	"name":"Letsee Namecard",
-	"size":{
-		"width": 90,
-		"height": 50
+	"physicalSize": {
+		"width": 85,
+		"height": 60
 	},
-	"scale": 0.2,
-	"image":"./namecard02.png"
+	"image": "himalaya_landscape.jpg"
 }

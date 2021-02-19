@@ -121,19 +121,23 @@ html, body {
   background: #ffffffc2;
   /* font-size: 1px; */
   text-align: right;
-  padding: 10px;
-  h1, h2 {
-    display: inline;
+  //padding: 10px;
+
+  article {
+    width: 90px;
+    height: 50px;
+    position: absolute;
+
+    p {
+      font-size: 5px;
+    }
   }
-  h1 {
-    font-size: 20px;
-    font-weight: 800;
-    margin-right: 15px;
+  span {
+    font-size: 5px;
   }
   .company {
-    margin: 10px 0 2px;
     img {
-      width: 70px;
+      width: 25px;
     }
   }
   h1, h2, span, a,
