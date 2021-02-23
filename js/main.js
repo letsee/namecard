@@ -45,6 +45,4 @@ window.onload = () => {
   .delay(() => {
     buttonContact.style.display = 'flex';
   }, 2000)
-
-
 }
